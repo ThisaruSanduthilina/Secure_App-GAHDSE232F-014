@@ -1,0 +1,20 @@
+{
+    "name": "thisaru/softwaresecurity",
+    "autoload": {
+        "psr-4": {
+            "Thisaru\\Softwaresecurity\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ThisaruSanduthilina",
+            "email": "sanduthilinathisaru@gmail.com"
+        }
+    ],
+    "require": {
+        "phpauth/phpauth": "^1.5",
+        "zendframework/zend-permissions-rbac": "^2.5",
+        "vlucas/phpdotenv": "^5.6",
+        "symfony/http-foundation": "^6.0"
+    }
+}

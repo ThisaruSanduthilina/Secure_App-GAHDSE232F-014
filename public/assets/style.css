@@ -1,0 +1,668 @@
+/* General reset and styling */
+html, div, span, object, iframe,
+ h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    height: 100%;
+   
+    font-family: Arial, sans-serif;
+}
+
+
+body {
+    line-height: 1;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    height: 100%;
+    width: 100%;
+    
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input, select {
+    vertical-align: middle;
+}
+
+/* Wrapper and layout */
+.wrapper {
+    min-height: 100vh; /* Ensure wrapper covers full height of viewport */
+    width: 100%; /* Ensure wrapper is 100% width of viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: auto; /* Allow header height to adjust based on content */
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width/height calculations */
+}
+
+
+.footer container{
+font-size: 20px;
+text-align: right;
+
+}
+footer {
+    height: auto; /* Allow footer height to adjust based on content */
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.footer p{
+    color: blue;
+    margin-left: 20px;
+}
+
+/* Logo and navigation */
+.col-md-3{
+height: auto;
+width: 100px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Adjust the height as needed */
+    margin-right: 10px;
+}
+
+.logo-text {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+    text-align: center;
+}
+
+.logo-text h1 {
+    color: white;
+    font-size: 24px;
+    margin-top: 5px;
+}
+
+.logo-text p {
+    color: white;
+    font-size: 16px;
+    margin-top: 3px; /* Space between h1 and p */
+}
+
+li a {
+    color: yellow;
+    text-decoration: none;
+}
+
+nav {
+    word-spacing: 10px;
+}
+
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+.full-screen {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+}
+.homebg{
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/*------------------------------------------HOMEPAGE------------------------------------------*/
+
+.homebg {
+    background-image: url(images/lbg.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-size 0.5s ease;
+
+    
+}
+.p9{
+    width: 500px;
+    height: 950px;
+}
+.box{
+    
+    width: 90%;
+    max-width: 500px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.72);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    
+}
+.box h1 {
+    text-align: center;
+    font-size: 40px;
+    color: rgba(255, 255, 255, 1); 
+}
+.box p{
+    text-align: center;
+    font-size: 17px;
+    color: white;
+    height: 10px;
+    width: 450px;
+    opacity: 100;
+}
+
+.index-background{
+width:device-width;
+height: auto !important;
+}
+
+/*_______________________________________________________________________________________login_______________________________________________________________________*/
+
+.login_img{
+    background-image: url('images/login_background.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-size 0.5s ease;
+
+}
+
+
+.box1{
+    width: 95%;
+    max-width: 620px;
+    height: 520px;
+    background-color: rgba(0, 0, 0, 0.72);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+   
+
+}
+.box1 h2{
+
+    font-size: 30px;
+    margin-bottom: 10px;
+    height: 30px;
+   
+    
+}
+.box1 h3{
+    font-size: 25px;
+    margin-bottom: 10px;
+    height: 38px;
+    width: 620px;
+    text-align: center;
+   
+}
+.box1 p0{
+    font-size: 25px;
+    margin-bottom: 20px;
+    height: 100px;
+    
+    
+}
+
+.box1 p{
+    font-size: 18px;
+    margin-bottom: 20px;
+    height: 100px;
+    width:620px;
+    text-align: center;
+}
+
+
+form.login{
+    margin: 0px auto;
+    width: center;
+    height: 100px;
+    align-items: center;
+}
+.login p{
+    font-size: 20px;
+    text-align: center;
+    width: 620px;
+    position: center;
+}
+input{
+    width:250px;
+    height: 30px;
+}
+.box1 p1{
+    text-align: center;
+    font-size: 16px;
+    color: white; 
+    width: 500px;
+    height: 800PX;
+    text-decoration: none;
+   
+}
+
+
+/*---------------------------------------register---------------------------------*/
+.reg_img{
+    background-image: url('images/login_background.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ensure it covers the full height of the viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-size 0.5s ease;
+}
+/*
+.reg_img{
+    
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+   
+}*/
+
+
+.reg_img form{
+    margin: 0px auto;
+    width: center;
+    height: 100px;
+    align-items: center;
+}
+
+.box2{
+    width: 91%;
+    max-width: 550px;
+    background-color: rgba(0, 0, 0, 0.72);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    height: 600px;
+   
+
+}
+
+.box2 h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    height: 15px;
+    color: white;
+}
+
+.box2 p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    height: 20px;
+}
+.btn-gold {
+    background-color: gold;
+    color: black;
+    height: 45px;
+}
+@media (max-width: 50px) {
+    .box1 h2 {
+        font-size: 24px;
+    }
+
+    .box1 p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .box2 h2 {
+        font-size: 24px;
+    }
+
+    .box2 p {
+        font-size: 16px;
+    }
+}
+/*------------------------------------navbar-------------------*/
+/* Navbar */
+.navbar {
+    background-color: #333;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-family: Arial, sans-serif;
+    
+}
+.navbar-nav {
+    float: right; /* Align navbar items to the right */
+}
+.navbar-header .navbar-brand {
+    color: #fff;
+    font-size: 24px;
+    
+}
+
+.navbar-header .navbar-toggle {
+    border-color: #fff;
+    
+}
+
+.navbar-header .navbar-toggle .icon-bar {
+    background-color: #fff;
+    
+}
+
+.navbar-collapse {
+    text-align: right;
+    align-items: right;
+}
+
+.navbar-nav > li > a {
+    color: #fff !important;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: right;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+    background-color: #555;
+    color: #fff !important;
+    
+}
+.navbar1 li a{
+    width: 800px;
+    height: 1200px;
+    
+}
+.navbar-toggle {
+    float: right; /* Keep the toggle button for mobile view aligned to the right */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-header .navbar-brand {
+        font-size: 20px;
+    }
+
+    .navbar-nav > li > a {
+        padding: 10px 15px;
+    }
+}
+/*--------------------------------alerts--------------------------------*/
+.custom-alert {
+    max-width: 400px; /* Adjust this value as needed */
+    height:60px;
+    margin: 20px auto; 
+    padding: 10px 20px; 
+    font-size: 14px; 
+    text-align: center; 
+}
+/*-------------------------------------------books--------------------------------*/
+.books {
+    
+    color: #ff5500; /* Change to desired text color */
+    position: center;
+    top: 20px; /* Adjust to desired position */
+    left: 20px; /* Adjust to desired position */
+    font-size: 20px; /* Adjust font size as needed */
+}
+.books-background {
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    color: rgb(128, 126, 126);
+}
+
+
+
+.booksbg {
+    background-color: #363434;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1000px;
+    text-align: center; /* Ensure text inside is centered */
+}
+
+.booksbg h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #f37107;
+    margin-top: 0; /* Remove any top margin */
+}
+
+.bookst {
+    margin-top: 0; /* Ensure no margin between heading and table */
+}
+
+.bookst table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Add space between heading and table */
+}
+
+.bookst table, .bookst th, .bookst td {
+    border: 1px solid #ddd;
+}
+
+.bookst th, .bookst td {
+    padding: 10px;
+    text-align: center;
+}
+
+.bookst th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #333;
+}
+
+.bookst tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.bookst tr:hover {
+    background-color: #e8e8e8;
+}
+
+
+/*--------------------------------------------feedback------------------------------------*/
+.fbg {
+    background-image: url('images/fb2.jpeg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+
+}
+
+.boxfback {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
+    padding: 20px;
+    border-radius: 10px;
+    color: rgb(114, 111, 111);
+    width: 90%;
+
+    
+    max-width: 650px;
+    
+  
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    height: 600px;
+}
+.boxfback h4{
+    height: 80px;
+    text-align: center;
+}
+.boxfback form{
+    height: 100px;
+    width: 1000px;
+    text-align: center;
+}
+.boxfback tr{
+    height: 50px;
+}
+.boxfback form btn{
+   color: #000000;
+   text-align: center;
+   
+}
+
+.scroll {
+    background-color: rgba(107, 107, 107, 0.8); /* Light background with transparency for the scroll area */
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*----------------------------------------------------------------profile----------------------------------------------------*/
+
+.pbg {
+    background-image: url(images/lprof.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-size 0.5s ease;
+    color: white;
+    width: 100%;
+
+    
+}
+.table-bordered{
+    width: 400px;
+    align-items: center;
+    text-align: center;
+    left: 20px;
+
+}
+.boxprof{
+    width: 91%;
+    max-width: 550px;
+    background-color: rgba(0, 0, 0, 0.72);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    height: 600px;
+   
+
+}
+
