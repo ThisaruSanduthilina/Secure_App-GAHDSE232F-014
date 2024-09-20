@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Store user information in session
             session_start();
             $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['email'];
             $_SESSION['role_id'] = $user['role_id']; // Store role_id in session
             
             // Redirect based on user role
@@ -184,8 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <ul class="navbar1">
                         <br>
                         <li><a href="login.php"><span class="glyphicon glyphicon-log-in">Login</span></a>
-                        <a href="index.php"><span class="glyphicon glyphicon-log-in">Log Out</span></a>
-                        <a href="registration.php"><span class="glyphicon glyphicon-log-in">Admin Login</span></a></li>
+                        <a href="index.php"><span class="glyphicon glyphicon-log-in">Home </span></a>
                     </ul>
                 </div>
             </div>

@@ -30,24 +30,34 @@ class AuthModel {
         }
     }
 
-    // Register a new user (optional, in case you want to add registration)
-    public function register($username, $password, $role_id) {
+    
+
+   
+    
+
+
+    public function register($username, $email, $password, $role_id) {
         try {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     
-            $sql = "INSERT INTO users (username, password, role_id, created_at) VALUES (:username, :password, :role_id, CURRENT_TIMESTAMP())";
+            // Corrected SQL to include the 'email' field in the insert query
+            $sql = "INSERT INTO users (username, email, password, role_id, created_at) 
+                    VALUES (:username, :email, :password, :role_id, CURRENT_TIMESTAMP())";
+                    
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
             $stmt->bindParam(':role_id', $role_id, PDO::PARAM_INT);
-            
+    
             return $stmt->execute();
         } catch (PDOException $e) {
-            // Log error message
+            // Log error message for debugging
             error_log("Registration failed: " . $e->getMessage());
             return false;
         }
     }
+    
 
     // Add this method in AuthModel.php
 public function getUserRole($username) {
@@ -55,6 +65,20 @@ public function getUserRole($username) {
         $sql = "SELECT role_id FROM users WHERE username = :username LIMIT 1";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
+        $role = $stmt->fetchColumn();
+        return $role;
+    } catch (PDOException $e) {
+        // Log error message
+        error_log("Failed to fetch user role: " . $e->getMessage());
+        return false;
+    }
+}
+public function getUsermail($email) {
+    try {
+        $sql = "SELECT role_id FROM users WHERE email = :email LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
         $role = $stmt->fetchColumn();
         return $role;

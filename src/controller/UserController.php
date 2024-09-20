@@ -73,4 +73,17 @@ class UserController
             header('Location: /user/view-profile.php');
         }
     }
+
+    // View all registered users
+    public function viewUsers()
+    {
+        $users = $this->userModel->getAllUsers();
+        require_once __DIR__ . '/../Views/Admin/view_users.php';
+    }
+}
+
+// Assuming you have a routing system
+if ($route == '/admin/view_users') {
+    $userController = new UserController();
+    $userController->viewUsers();
 }

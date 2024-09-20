@@ -7,6 +7,7 @@ try {
 } catch (PDOException $e) {
     die('Database connection failed: ' . $e->getMessage());
 }
+define('PEPPER', 'your-secret-pepper');
 
 // Database configuration
 return [
@@ -52,4 +53,5 @@ return [
         'csrf_protection' => true,                       // Enable CSRF protection
         'csrf_token_lifetime' => 3600,                   // CSRF token expiration time (1 hour)
     ],
+    
 ];

@@ -7,8 +7,11 @@ require_once __DIR__ . '/../src/Model/AuthModel.php';
 $authModel = new AuthModel($pdo);
 
 // Initialize variables for form processing
-$username = $password = $confirmPassword = "";
-$username_err = $password_err = $confirmPassword_err = $success_msg = $error_msg = "";
+// $username = $password = $confirmPassword = "";
+// $username_err = $password_err = $confirmPassword_err = $success_msg = $error_msg = "";
+// Initialize variables for form processing
+$username = $email = $password = $confirmPassword = "";
+$username_err = $email_err = $password_err = $confirmPassword_err = $success_msg = $error_msg = "";
 
 // Process the form when it is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,11 +22,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = trim($_POST["username"]);
     }
 
+    // Validate email
+    if (empty(trim($_POST["email"]))) {
+        $email_err = "Please enter an email.";
+    } elseif (!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
+        $email_err = "Invalid email format.";
+    } else {
+        $email = trim($_POST["email"]);
+    }
+
     // Validate password
     if (empty(trim($_POST["password"]))) {
         $password_err = "Please enter a password.";
-    } elseif (strlen(trim($_POST["password"])) < 6) {
-        $password_err = "Password must have at least 6 characters.";
+    } elseif (strlen(trim($_POST["password"])) < 8) {
+        $password_err = "Password must have at least 8 characters.";
+    } elseif (!preg_match('/[A-Z]/', trim($_POST["password"]))) {
+        $password_err = "Password must contain at least one uppercase letter.";
+    } elseif (!preg_match('/[a-z]/', trim($_POST["password"]))) {
+        $password_err = "Password must contain at least one lowercase letter.";
     } else {
         $password = trim($_POST["password"]);
     }
@@ -42,9 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $role_id = '2'; // This sets all registered users as 'user' by default
 
     // Check if there are no errors before inserting into the database
-    if (empty($username_err) && empty($password_err) && empty($confirmPassword_err)) {
+    if (empty($username_err) && empty($email_err) && empty($password_err) && empty($confirmPassword_err)) {
         // Register the user with role_id = 2 (user)
-        $registerSuccess = $authModel->register($username, $password, $role_id);
+        $registerSuccess = $authModel->register($username, $email, $password, $role_id);
         
         if ($registerSuccess) {
             $success_msg = "Registration successful! You can now login.";
@@ -53,6 +69,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
+
+
+
+
+
+    
+
 ?>
 
 <!-- 
@@ -198,10 +222,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="books.php">Books</a></li>
-                        <li><a href="student_login.php">Student Login</a></li>
+                        <li><a href="student_login.php"> Login</a></li>
                         <li><a href="registration.php">Registration</a></li>
-                        <li><a href="feedback.php">Feedback</a></li>
                     </ul>
                 </div>
             </div>
@@ -223,6 +245,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         
                         <input class="form-control" placeholder="Username" type="text" name="username" value="<?php echo htmlspecialchars($username); ?>" required>
                         <span class="error"><?php echo htmlspecialchars($username_err); ?></span>
+                    </div>
+                    <div>
+                        <input class="form-control" placeholder="Email" type="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
+                        <span class="error"><?php echo htmlspecialchars($email_err); ?></span>
                     </div>
                     <div>
                         

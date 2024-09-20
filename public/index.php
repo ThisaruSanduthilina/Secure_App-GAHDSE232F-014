@@ -60,9 +60,7 @@ if (isset($_SESSION['user_role'])) {
                 <div class="navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="Books.php">Books</a></li>
                         <li><a href="login.php">Login</a></li>
-                        <li><a href="feedback.php">Feedback</a></li>
                     </ul>
                 </div>
             </div>
